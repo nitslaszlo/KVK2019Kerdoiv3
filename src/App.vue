@@ -51,6 +51,7 @@
                 </v-card-actions>
               </v-card>
             </v-flex>
+
             <!-- 2. Melyik évfolyamon tanulsz? -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
@@ -73,6 +74,7 @@
                 </v-card-actions>
               </v-card>
             </v-flex>
+
             <!-- 3. Melyik megyében található az intézmény, ahol tanulsz? -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
@@ -119,6 +121,7 @@
                 </v-card-actions>
               </v-card>
             </v-flex>
+
             <!-- 5.	Hány tanévben használtál már e-learning (LMS) keretrendszert -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
@@ -126,7 +129,7 @@
                 <v-card-title primary-title>
                   <div>
                     <v-icon class="floatleft" large left>mdi-weather-sunset-down</v-icon>
-                    <span>5.	Hány tanévben használtál már e-learning (LMS) keretrendszert?</span>
+                    <span>5. Hány tanévben használtál már e-learning (LMS) keretrendszert?</span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
@@ -141,6 +144,7 @@
                 </v-card-actions>
               </v-card>
             </v-flex>
+
             <!-- 6.	Milyen eszközön használod az e-learning (LMS) keretrendszer szolgáltatásait? -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
@@ -148,7 +152,7 @@
                 <v-card-title primary-title>
                   <div>
                     <v-icon class="floatleft" large left>school</v-icon>
-                    <span>6. Milyen eszközön használod az e-learnig (LMS) keretrendszer szolgáltatásait?</span>
+                    <span>6. Milyen eszközön használod az e-learning (LMS) keretrendszer szolgáltatásait?</span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
@@ -184,210 +188,176 @@
                     clearable
                     label="Használat gyakorisága"
                     outline
-                    v-model="lsmHasznalatGyakorisaga"
+                    v-model="lmsHasznalatGyakorisaga"
                   />
                 </v-card-actions>
               </v-card>
             </v-flex>
 
-            <!-- 8.	A következő LMS szolgáltatásokat ha ismered, akkor mennyire tartod hasznosnak? -->
+            <!-- 8.	A következő e-learning (LMS) szolgáltatásokat ha ismered, akkor mennyire tartod őket hasznosnak? -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
                     <v-icon large left>mdi-chart-histogram</v-icon>
-                    <span>8.	A következő LMS szolgáltatásokat ha ismered, akkor mennyire tartod hasznosnak?</span>
+                    <span>8.	A következő e-learning (LMS) szolgáltatásokat ha ismered, akkor mennyire tartod őket hasznosnak?</span>
                   </div>
                 </v-card-title>
+              
                 <!-- Quiz -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="8.1 Tesztek tanulói teljesítmény méréséhez"
+                    label="8.1 Tesztek tanulói teljesítmény mérésére"
                     outline
-                    v-model="tesztGyakorisaga"
+                    v-model="tesztHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Assignment -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.2 Tanulói munkák (órai / házi) feltöltése"
+                    label="8.2 Állományok feltöltése (órai feladatok, házi feladatok)"
                     outline
-                    v-model="feladatGyakorisaga"
+                    v-model="feladatHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Forum -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.3 Fórumok használata (aszinkron kommunikáció)"
+                    label="8.3 Fórumok használata (aszinkron kommunikáció)"
                     outline
-                    v-model="forumGyakorisaga"
+                    v-model="forumHasznos"
                   />
                 </v-card-actions>
+
                 <!-- File -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.4 Meglévő digitális tananyagok megosztása"
+                    label="8.4 Megosztott tananyagok olvasása / letöltése"
                     outline
-                    v-model="tananyagGyakorisaga"
+                    v-model="tananyagHasznos"
                   />
                 </v-card-actions>
-                <!-- Page -->
-                <v-card-actions>
-                  <v-select
-                    :items="gyakorisagLista2"
-                    suffix
-                    clearable
-                    :disabled="!lmsYorN"
-                    label="10.5 Digitális tananyagok készítése az LMS keretrendszeren belül"
-                    outline
-                    v-model="oldalGyakorisaga"
-                  />
-                </v-card-actions>
+                
                 <!-- URL -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.6 Hivatkozások (URL címek) megosztása"
+                    label="8.5 Megosztott hivatkozások (URL címek) látogatása"
                     outline
-                    v-model="urlGyakorisaga"
+                    v-model="urlHasznos"
                   />
                 </v-card-actions>
+                
                 <!-- Glossary -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.7 Fogalomtár készítése"
+                    label="8.6 Fogalomtár használata"
                     outline
-                    v-model="fogalomtarGyakorisaga"
+                    v-model="fogalomtarHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Feedback -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.8 Tanulói visszajelzések"
+                    label="8.7 Visszajelzések készítse a tanóráról"
                     outline
-                    v-model="visszajelzesGyakorisaga"
+                    v-model="visszajelzesHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Choice -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.9 Tanulói választások"
+                    label="8.8 Tanulói választások, szavazások"
                     outline
-                    v-model="valasztasGyakorisaga"
+                    v-model="valasztasHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Database -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.10 Adatbázisok létrehozása / kezelése"
+                    label="8.9 Adatbázisok létrehozása / kezelése"
                     outline
-                    v-model="adatbazisGyakorisaga"
+                    v-model="adatbazisHasznos"
                   />
                 </v-card-actions>
+
                 <!-- Wiki -->
                 <v-card-actions>
                   <v-select
-                    :items="gyakorisagLista2"
+                    :items="hasznossagLista"
                     suffix
                     clearable
-                    :disabled="!lmsYorN"
-                    label="10.11 Wiki oldalak készítése (tanulói együttműködés)"
+                    label="8.10 Wiki oldalak készítése"
                     outline
-                    v-model="wikiGyakorisaga"
+                    v-model="wikiHasznos"
                   />
                 </v-card-actions>
               </v-card>
             </v-flex>
-            <!-- 11. Mennyire tartja hasznosnak az LMS keretrendszer alkalmazását a nappali képzésben? -->
-            <v-flex xs12 sm12 md12 lg12 xl12 v-show="lmsYorN">
+
+            <!-- 9. Mennyire tartod hasznosnak az e-learning (LMS) keretrendszer alkalmazását a nappali képzésben? -->
+            <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
                     <v-icon class="floatleft" large left>mdi-weather-sunny</v-icon>
-                    <span>11. Mennyire tartja hasznosnak az LMS keretrendszer alkalmazását a nappali képzésben?</span>
+                    <span>9. Mennyire tartod hasznosnak az e-learning (LMS) keretrendszer alkalmazását a nappali képzésben?</span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
                   <v-select
                     dark
-                    :items="hasznossagLista"
+                    :items="hasznossagLista2"
                     clearable
-                    :disabled="!lmsYorN"
-                    label="Nappali képzésben"
+                    label="Hasznosság"
                     outline
                     v-model="hasznosNappali"
                   />
                 </v-card-actions>
               </v-card>
             </v-flex>
-            <!-- 12. Mennyire tartja hasznosnak az LMS keretrendszer alkalmazását az esti képzésben? -->
-            <v-flex xs12 sm12 md12 lg12 xl12 v-show="lmsYorN">
-              <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
-                <v-img></v-img>
-                <v-card-title primary-title>
-                  <div>
-                    <v-icon class="floatleft" large left>mdi-weather-sunset</v-icon>
-                    <span>12. Mennyire tartja hasznosnak az LMS keretrendszer alkalmazását az esti képzésben?</span>
-                  </div>
-                </v-card-title>
-                <v-card-actions>
-                  <v-select
-                    dark
-                    :items="hasznossagLista"
-                    clearable
-                    :disabled="!lmsYorN"
-                    label="Esti képzésben"
-                    outline
-                    v-model="hasznosEsti"
-                  />
-                </v-card-actions>
-              </v-card>
-            </v-flex>
-            <!-- 13. Általánosságban mennyire elégedett az Ön által használt LMS keretrendszerrel? -->
-            <v-flex xs12 sm12 md12 lg12 xl12 v-show="lmsYorN">
+
+            <!-- 10. Általánosságban mennyire vagy elégedett az iskolában használt LMS keretrendszerrel? -->
+            <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
                     <v-icon class="floatleft" large left>mdi-emoticon-happy</v-icon>
-                    <span>13. Általánosságban mennyire elégedett az Ön által használt LMS keretrendszerrel?</span>
+                    <span>10. Általánosságban mennyire vagy elégedett az iskolában használt LMS keretrendszerrel?</span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
@@ -395,7 +365,6 @@
                     dark
                     :items="elegedettsegiLista"
                     clearable
-                    :disabled="!lmsYorN"
                     label="Elégedettség"
                     outline
                     v-model="lmsElegedett"
@@ -403,6 +372,7 @@
                 </v-card-actions>
               </v-card>
             </v-flex>
+
             <!-- MENTÉS -->
             <v-flex xs12 sm12 md12 lg12 xl12>
               <v-card class="mx-auto my-2" color="lightblue" max-width="600" elevation="18" dark>
@@ -486,15 +456,6 @@ export default class App extends Vue {
 
   private kepzesiFormaLista: string[] = ["Nappali oktatás", "Esti oktatás"];
 
-  private lmsRendszerekLista: string[] = [
-    "Moodle",
-    "CANVAS",
-    "Ilias",
-    "Blackboard Learn",
-    "Sakai",
-    "Egyéb"
-  ];
-
 
   private gyakorisagLista: string[] = [
     "Hetente több, mint 1 alkalommal",
@@ -504,20 +465,19 @@ export default class App extends Vue {
     "Szinte alig"
   ];
 
-  private gyakorisagLista2: string[] = [
-    "Hetente legalább 1 alkalommal",
-    "Havonta 1-2 alkalommal",
-    "2-3 havonta",
-    "Szinte alig",
-    "Soha"
-  ];
-
   private hasznossagLista: string[] = [
+    "Nem ismerem, nincs véleményem",
     "Nagyon hasznos",
     "Hasznos",
     "Kevésbé hasznos",
-    "Nem hasznos",
-    "Egyáltalán nem hasznos"
+    "Nem hasznos"
+  ];
+
+  private hasznossagLista2: string[] = [
+    "Nagyon hasznos",
+    "Hasznos",
+    "Kevésbé hasznos",
+    "Nem hasznos"
   ];
 
   private elegedettsegiLista: string[] = [
@@ -532,27 +492,21 @@ export default class App extends Vue {
   private evfolyam: string = ""; // 2
   private megyek: string = ""; // 3
   private tantargyakTipusa: string[] = []; // 4
-  private lsmHanyEve: string = ""; // 5
+  private lmsHanyEve: string = ""; // 5
   private lmsEszkoz: string[] = []; // 6
-  private lsmHasznalatGyakorisaga: string = ""; // 7
-
-  private kepzesiForma: string[] = [];
-  private lmsYorN: boolean = false;
-  private lmsHasznal: string[] = [];
-  private tesztGyakorisaga: string = "";
-  private feladatGyakorisaga: string = "";
-  private forumGyakorisaga: string = "";
-  private tananyagGyakorisaga: string = "";
-  private oldalGyakorisaga: string = "";
-  private urlGyakorisaga: string = "";
-  private fogalomtarGyakorisaga: string = "";
-  private visszajelzesGyakorisaga: string = "";
-  private valasztasGyakorisaga: string = "";
-  private adatbazisGyakorisaga: string = "";
-  private wikiGyakorisaga: string = "";
-  private hasznosNappali: string = "";
-  private hasznosEsti: string = "";
-  private lmsElegedett: string = "";
+  private lmsHasznalatGyakorisaga: string = ""; // 7
+  private tesztHasznos: string = ""; // 8.1
+  private feladatHasznos: string = ""; // 8.2
+  private forumHasznos: string = ""; // 8.3
+  private tananyagHasznos: string = ""; // 8.4
+  private urlHasznos: string = ""; // 8.5
+  private fogalomtarHasznos: string = ""; // 8.6;
+  private visszajelzesHasznos: string = "";  // 8.7;
+  private valasztasHasznos: string = ""; // 8.8;
+  private adatbazisHasznos: string = ""; // 8.9;
+  private wikiHasznos: string = ""; // 8.10
+  private hasznosNappali: string = ""; // 9.
+  private lmsElegedett: string = ""; // 10.
 
   // Új elem hozzáadása az adatbázishoz
   private add(): void {
@@ -560,83 +514,63 @@ export default class App extends Vue {
     if (this.evfolyam === "") {
       nemAdottVálaszt += "2.  ";
     }
-    if (this.megyek.length === 0) {
+    if (this.megyek === "") {
       nemAdottVálaszt += "3.  ";
     }
     if (this.tantargyakTipusa.length === 0) {
       nemAdottVálaszt += "4.  ";
     }
-    if (this.kepzesiForma.length === 0) {
+    if (this.lmsHanyEve === "") {
       nemAdottVálaszt += "5.  ";
+    }
+    if (this.lmsEszkoz.length === 0) {
+      nemAdottVálaszt += "6.  ";
+    }
+    if (this.lmsHasznalatGyakorisaga === "") {
+      nemAdottVálaszt += "7.  ";
+    }
+    if (this.tesztHasznos === "") {
+      nemAdottVálaszt += "8.1  ";
+    }
+    if (this.feladatHasznos === "") {
+      nemAdottVálaszt += "8.2  ";
+    }
+    if (this.forumHasznos === "") {
+      nemAdottVálaszt += "8.3  ";
+    }
+    if (this.tananyagHasznos === "") {
+      nemAdottVálaszt += "8.4  ";
+    }
+    if (this.urlHasznos === "") {
+      nemAdottVálaszt += "8.5  ";
+    }
+    if (this.fogalomtarHasznos === "") {
+      nemAdottVálaszt += "8.6  ";
+    }
+    if (this.visszajelzesHasznos === "") {
+      nemAdottVálaszt += "8.7  ";
+    }
+    if (this.valasztasHasznos === "") {
+      nemAdottVálaszt += "8.8  ";
+    }
+    if (this.adatbazisHasznos === "") {
+      nemAdottVálaszt += "8.9  ";
+    }
+    if (this.wikiHasznos === "") {
+      nemAdottVálaszt += "8.10  ";
+    }
+    if (this.hasznosNappali === "") {
+      nemAdottVálaszt += "9.  ";
+    }
+    if (this.lmsElegedett === "") {
+      nemAdottVálaszt += "10.  ";
     }
     if (nemAdottVálaszt.length > 0) {
       // tslint:disable-next-line:max-line-length
       alert(
-        `A kérdőív adatainak mentéséhez a következő kérdésekre a választ legyen szíves megadni: \r${nemAdottVálaszt}`
+        `A kérdőív adatainak mentéséhez a következő kérdésekre a választ legyél kedves megadni: \r${nemAdottVálaszt}`
       );
       return;
-    }
-
-    if (this.lmsYorN) {
-      nemAdottVálaszt = "";
-      if (this.lmsHasznal.length === 0) {
-        nemAdottVálaszt += "7.  ";
-      }
-      if (this.lsmHanyEve === "") {
-        nemAdottVálaszt += "8.  ";
-      }
-      if (this.lsmHasznalatGyakorisaga === "") {
-        nemAdottVálaszt += "9.  ";
-      }
-      if (this.tesztGyakorisaga === "") {
-        nemAdottVálaszt += "10.1  ";
-      }
-      if (this.feladatGyakorisaga === "") {
-        nemAdottVálaszt += "10.2  ";
-      }
-      if (this.forumGyakorisaga === "") {
-        nemAdottVálaszt += "10.3  ";
-      }
-      if (this.tananyagGyakorisaga === "") {
-        nemAdottVálaszt += "10.4  ";
-      }
-      if (this.oldalGyakorisaga === "") {
-        nemAdottVálaszt += "10.5  ";
-      }
-      if (this.urlGyakorisaga === "") {
-        nemAdottVálaszt += "10.6  ";
-      }
-      if (this.fogalomtarGyakorisaga === "") {
-        nemAdottVálaszt += "10.7  ";
-      }
-      if (this.visszajelzesGyakorisaga === "") {
-        nemAdottVálaszt += "10.8  ";
-      }
-      if (this.valasztasGyakorisaga === "") {
-        nemAdottVálaszt += "10.9  ";
-      }
-      if (this.adatbazisGyakorisaga === "") {
-        nemAdottVálaszt += "10.10  ";
-      }
-      if (this.wikiGyakorisaga === "") {
-        nemAdottVálaszt += "10.11  ";
-      }
-      if (this.hasznosNappali === "") {
-        nemAdottVálaszt += "12.  ";
-      }
-      if (this.hasznosEsti === "") {
-        nemAdottVálaszt += "12.  ";
-      }
-      if (this.lmsElegedett === "") {
-        nemAdottVálaszt += "13.";
-      }
-      if (nemAdottVálaszt.length > 0) {
-        // tslint:disable-next-line:max-line-length
-        alert(
-          `A kérdőív adatainak mentéséhez a következő kérdésekre a választ legyen szíves megadni: \r${nemAdottVálaszt}`
-        );
-        return;
-      }
     }
 
     // Firestore objektum összeállítása
@@ -645,28 +579,22 @@ export default class App extends Vue {
     obj.K01_ferfi = this.ferfi;
     obj.K02_evfolyam = this.evfolyam;
     obj.K03_megyek = this.megyek;
-    obj.K04_tanargyakTipusa = this.tantargyakTipusa;
-    obj.K05_kepzesiForma = this.kepzesiForma;
-    obj.K06_lmsYorN = this.lmsYorN;
-    if (this.lmsYorN) {
-      obj.K07_lmsHasznal = this.lmsHasznal;
-      obj.K08_lsmHanyEve = this.lsmHanyEve;
-      obj.K09_lsmHasznalatGyakorisaga = this.lsmHasznalatGyakorisaga;
-      obj.K10a_tesztGyakorisaga = this.tesztGyakorisaga;
-      obj.K10b_feladatGyakorisaga = this.feladatGyakorisaga;
-      obj.K10c_forumGyakorisaga = this.forumGyakorisaga;
-      obj.K10d_tananyagGyakorisaga = this.tananyagGyakorisaga;
-      obj.K10e_oldalGyakorisaga = this.oldalGyakorisaga;
-      obj.K10f_urlGyakorisaga = this.urlGyakorisaga;
-      obj.K10g_fogalomtarGyakorisaga = this.fogalomtarGyakorisaga;
-      obj.K10h_visszajelzesGyakorisaga = this.visszajelzesGyakorisaga;
-      obj.K10i_valasztasGyakorisaga = this.valasztasGyakorisaga;
-      obj.K10j_adatbazisGyakorisaga = this.adatbazisGyakorisaga;
-      obj.K10k_wikiGyakorisaga = this.wikiGyakorisaga;
-      obj.K11_hasznosNappali = this.hasznosNappali;
-      obj.K12_hasznosEsti = this.hasznosEsti;
-      obj.K13_lmsElegedett = this.lmsElegedett;
-    }
+    obj.K04_tantargyakTipusa = this.tantargyakTipusa;
+    obj.K05_lmsHanyEve = this.lmsHanyEve;
+    obj.K06_lmsEszkoz = this.lmsEszkoz;
+    obj.K07_lmsHasznalatGyakorisaga = this.lmsHasznalatGyakorisaga;
+    obj.K8a_tesztHasznos = this.tesztHasznos;
+    obj.K8b_feladatHasznos = this.feladatHasznos;
+    obj.K8c_forumHasznos = this.forumHasznos;
+    obj.K8d_tananyagHasznos = this.tananyagHasznos;
+    obj.K8e_urlHasznos = this.urlHasznos;
+    obj.K8f_fogalomtarHasznos = this.fogalomtarHasznos;
+    obj.K8g_visszajelzesHasznos = this.visszajelzesHasznos;
+    obj.K8h_valasztasHasznos = this.valasztasHasznos;
+    obj.K8i_adatbazisHasznos = this.adatbazisHasznos;
+    obj.K8j_wikiHasznos = this.wikiHasznos;
+    obj.K9_hasznosNappali = this.hasznosNappali;
+    obj.K10_lmsElegedett = this.lmsElegedett;
 
     db.collection("valaszok3") // Elem feltöltése az adatbázisba
       .add(obj)
@@ -681,27 +609,25 @@ export default class App extends Vue {
         alert(`Hiba az adatok mentésekor: ${error}`);
         return;
       });
+
+    this.ferfi = false;
     this.megyek = "";
     this.evfolyam = "";
     this.tantargyakTipusa = [];
-    this.kepzesiForma = [];
-    this.lmsYorN = false;
-    this.lmsHasznal = [];
-    this.lsmHanyEve = "";
-    this.lsmHasznalatGyakorisaga = "";
-    this.tesztGyakorisaga = "";
-    this.feladatGyakorisaga = "";
-    this.forumGyakorisaga = "";
-    this.tananyagGyakorisaga = "";
-    this.oldalGyakorisaga = "";
-    this.urlGyakorisaga = "";
-    this.fogalomtarGyakorisaga = "";
-    this.visszajelzesGyakorisaga = "";
-    this.valasztasGyakorisaga = "";
-    this.adatbazisGyakorisaga = "";
-    this.wikiGyakorisaga = "";
+    this.lmsHanyEve = "";
+    this.lmsEszkoz = [];
+    this.lmsHasznalatGyakorisaga = "";
+    this.tesztHasznos = "";
+    this.feladatHasznos = "";
+    this.forumHasznos = "";
+    this.tananyagHasznos = "";
+    this.urlHasznos = "";
+    this.fogalomtarHasznos = "";
+    this.visszajelzesHasznos = "";
+    this.valasztasHasznos = "";
+    this.adatbazisHasznos = "";
+    this.wikiHasznos = "";
     this.hasznosNappali = "";
-    this.hasznosEsti = "";
     this.lmsElegedett = "";
   }
 }
