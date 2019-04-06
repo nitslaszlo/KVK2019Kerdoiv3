@@ -235,7 +235,7 @@
                     :items="hasznossagLista"
                     suffix
                     clearable
-                    label="8.3 Fórumok használata (aszinkron kommunikáció)"
+                    label="8.3 Fórumok használata"
                     outline
                     v-model="forumHasznos"
                   />
@@ -271,7 +271,7 @@
                     :items="hasznossagLista"
                     suffix
                     clearable
-                    label="8.6 Fogalomtár használata"
+                    label="8.6 Beépített fogalomtár használata"
                     outline
                     v-model="fogalomtarHasznos"
                   />
@@ -283,7 +283,7 @@
                     :items="hasznossagLista"
                     suffix
                     clearable
-                    label="8.7 Visszajelzések készítse a tanóráról"
+                    label="8.7 Tanulói visszajelzések készítse a tanóráról"
                     outline
                     v-model="visszajelzesHasznos"
                   />
@@ -334,7 +334,7 @@
                 <v-card-title primary-title>
                   <div>
                     <v-icon class="floatleft" large left>mdi-weather-sunny</v-icon>
-                    <span>9. Mennyire tartod hasznosnak az e-learning (LMS) keretrendszer alkalmazását a nappali képzésben?</span>
+                    <span>9. Mennyire tartod hasznosnak az e-learning (LMS) keretrendszert a tanulmányaid támogatásához?</span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
@@ -344,7 +344,7 @@
                     clearable
                     label="Hasznosság"
                     outline
-                    v-model="hasznosNappali"
+                    v-model="hasznosTanulmanyokhoz"
                   />
                 </v-card-actions>
               </v-card>
@@ -436,13 +436,14 @@ export default class App extends Vue {
     "10.",
     "11.",
     "12.",
-    "13-14."
+    "13-14.",
+    "Felnőttképzés"
   ];
 
   private tantargyakTipusaLista: string[] = [
-    "Reál tantárgyak (pl.: matematika)",
-    "Humán tantárgyak (pl. irodalom)",
-    "Szakmai tantárgyak"
+    "Reál tantárgyak (pl.: matematika, kémia, informatika)",
+    "Humán tantárgyak (pl. irodalom, történelem)",
+    "Szakmai tantárgyak (pl. hálózati ismeretek, programozás)"
   ];
 
   private evekLista: string[] = ["1", "2", "3", "4", "5-"];
@@ -469,6 +470,7 @@ export default class App extends Vue {
     "Nem ismerem, nincs véleményem",
     "Nagyon hasznos",
     "Hasznos",
+    "Semleges",
     "Kevésbé hasznos",
     "Nem hasznos"
   ];
@@ -476,6 +478,7 @@ export default class App extends Vue {
   private hasznossagLista2: string[] = [
     "Nagyon hasznos",
     "Hasznos",
+    "Semleges",
     "Kevésbé hasznos",
     "Nem hasznos"
   ];
@@ -505,7 +508,7 @@ export default class App extends Vue {
   private valasztasHasznos: string = ""; // 8.8;
   private adatbazisHasznos: string = ""; // 8.9;
   private wikiHasznos: string = ""; // 8.10
-  private hasznosNappali: string = ""; // 9.
+  private hasznosTanulmanyokhoz: string = ""; // 9.
   private lmsElegedett: string = ""; // 10.
 
   // Új elem hozzáadása az adatbázishoz
@@ -559,7 +562,7 @@ export default class App extends Vue {
     if (this.wikiHasznos === "") {
       nemAdottVálaszt += "8.10  ";
     }
-    if (this.hasznosNappali === "") {
+    if (this.hasznosTanulmanyokhoz === "") {
       nemAdottVálaszt += "9.  ";
     }
     if (this.lmsElegedett === "") {
@@ -593,7 +596,7 @@ export default class App extends Vue {
     obj.K8h_valasztasHasznos = this.valasztasHasznos;
     obj.K8i_adatbazisHasznos = this.adatbazisHasznos;
     obj.K8j_wikiHasznos = this.wikiHasznos;
-    obj.K9_hasznosNappali = this.hasznosNappali;
+    obj.K9_hasznosTanulmanyokhoz = this.hasznosTanulmanyokhoz;
     obj.K10_lmsElegedett = this.lmsElegedett;
 
     db.collection("valaszok3") // Elem feltöltése az adatbázisba
@@ -627,7 +630,7 @@ export default class App extends Vue {
     this.valasztasHasznos = "";
     this.adatbazisHasznos = "";
     this.wikiHasznos = "";
-    this.hasznosNappali = "";
+    this.hasznosTanulmanyokhoz = "";
     this.lmsElegedett = "";
   }
 }
