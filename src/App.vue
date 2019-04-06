@@ -104,7 +104,7 @@
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
-                    <v-icon class="floatleft" large left>mdi-library</v-icon>
+                    <v-icon class="floatleft" large left>mdi-shape</v-icon>
                     <span>4. Milyen típusú tantárgyaknál használtok LMS (Moodle, Canvas, stb.) rendszereket?</span>
                   </div>
                 </v-card-title>
@@ -128,7 +128,7 @@
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
-                    <v-icon class="floatleft" large left>mdi-weather-sunset-down</v-icon>
+                    <v-icon class="floatleft" large left>mdi-numeric</v-icon>
                     <span>5. Hány tanévben használtál már e-learning (LMS) keretrendszert?</span>
                   </div>
                 </v-card-title>
@@ -333,7 +333,7 @@
                 <v-img></v-img>
                 <v-card-title primary-title>
                   <div>
-                    <v-icon class="floatleft" large left>mdi-weather-sunny</v-icon>
+                    <v-icon class="floatleft" large left>mdi-scale-balance</v-icon>
                     <span>9. Mennyire tartod hasznosnak az e-learning (LMS) keretrendszert a tanulmányaid támogatásához?</span>
                   </div>
                 </v-card-title>
