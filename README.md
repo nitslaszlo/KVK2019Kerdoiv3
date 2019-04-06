@@ -1,7 +1,7 @@
-# KVK2019 - Szakdolgozat - Kérdőív 1 (Vue.js + Typescript + Vuetify + VueRourer)
+# KVK2019 - Szakdolgozat - Kérdőív 3 (Vue.js + Typescript + Vuetify + VueRourer)
 
 ## netlify link:
-https://quirky-volhard-b45186.netlify.com/
+
 
 ## Fejlesztői környezet telepítése
 https://github.com/nitslaszlo/JedlikVueJsStarter
